@@ -1,0 +1,77 @@
+## 🛠️ 1. Instalar PHP
+
+#Abra o terminal e rode:
+
+```bash
+sudo apt update
+sudo apt install php php-cli php-mbstring unzip curl
+```
+
+---
+
+## 🛠️ 2. Instalar o Composer
+
+#Depois que o PHP estiver instalado:
+
+```bash
+curl -sS https://getcomposer.org/installer | php
+sudo mv composer.phar /usr/local/bin/composer
+```
+
+#Verifique se deu certo:
+
+```bash
+composer --version
+```
+
+---
+
+## ✅ 3. Instalar o Expose
+
+#Com o Composer funcionando:
+
+```bash
+composer global require beyondcode/expose
+```
+
+#Adicione o Composer global ao seu PATH:
+
+```bash
+echo 'export PATH="$HOME/.composer/vendor/bin:$PATH"' >> ~/.bashrc
+source ~/.bashrc
+```
+
+---
+
+## 🚀 4. Rodar o Expose
+
+#Com tudo instalado, rode:
+
+```bash
+#expose share 3000
+```
+
+```
+#https://gabriel.expose.dev
+```
+---
+
+## 🔒 (Opcional) Criar conta e configurar domínio fixo
+
+#Acesse [https://expose.dev](https://expose.dev), crie uma conta e configure seu subdomínio personalizado.
+
+---
+
+## 🧠 Dica
+
+#No seu `script.js`, substitua:
+
+```js
+#fetch("/api/quiz")
+```
+
+```js
+#fetch("https://gabriel.expose.dev/api/quiz")
+```
+
+---

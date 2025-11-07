@@ -1,0 +1,3 @@
+https://expose.dev/login
+
+qrencode -t ansiutf8 "https://lifxspsr5l.sharedwithexpose.com"

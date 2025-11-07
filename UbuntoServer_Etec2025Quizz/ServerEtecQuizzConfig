@@ -1,0 +1,77 @@
+### Descrição do servidor etec2025
+
+Este servidor é uma instalação Ubuntu Server personalizada (Ubuntu 24.04.3 LTS) preparada para desenvolvimento e uso local em notebook Dell Inspiron 3584. Combina uma interface gráfica leve (Xfce4) com um conjunto completo de ferramentas de desenvolvimento, banco de dados e utilitários de segurança, adequado para rodar um projeto de quiz (HTML/CSS/JS) e serviços backend (Node.js, PHP, MySQL) em ambiente controlado.
+
+---
+
+### Informações da máquina
+
+- **Usuário / Host:** etec2025@etec2025  
+- **OS:** Ubuntu 24.04.3 LTS (Noble Numbat) x86_64  
+- **Kernel:** Linux 6.8.0-87-generic  
+- **Uptime:** 31 mins  
+- **Pacotes instalados:** 1628 (dpkg), 9 (snap)  
+- **Shell:** bash 5.2.21  
+- **Ambiente gráfico:** Xfce4 4.18 / Xfwm4 (X11)  
+- **Displays:** 1920x1080 (externo), 1366x768 (built-in)  
+- **CPU:** Intel Core i3-7020U (4 threads) @ 2.30 GHz  
+- **GPU:** Intel HD Graphics 620 (integrada)  
+- **Memória:** 3.70 GiB em uso / 15.52 GiB total (≈24%) (simulação com interfaçe gráfica) 
+- **Swap:** 0 B usado / 4.00 GiB  
+- **Disco (root):** 16.10 GiB usado / 97.87 GiB total (ext4)  
+- **IP local (wlp2s0):** xxx.xx.x.xx/xx  
+- **Locale:** pt_PT.UTF-8
+
+---
+
+### Principais pacotes instalados
+
+- **Interface e sessão:** xfce4; xfce4-goodies; lightdm  
+- **Banco de dados:** mysql-server; mysql-workbench-community; mysql-apt-config  
+- **Backends / runtimes:** nodejs; php; php-cli; php-mbstring; php-sqlite3; php-xml  
+- **Segurança / auditoria:** apparmor; auditd; fail2ban; lynis; clamav; clamav-daemon; iptables; iptables-persistent  
+- **Desenvolvimento e compilação:** build-essential; gcc; g++; cmake; pkg-config; curl; git; gh  
+- **Utilitários e sistema:** openssh-server; qrencode; neofetch; htop; unzip; util-linux  
+- **Bibliotecas gráficas:** libx11-dev; libxcb-*; libgl1-mesa-dev; libegl1-mesa-dev; libgbm-dev; libxkbcommon-dev  
+- **Navegadores e editores:** firefox; microsoft-edge-stable; geany
+
+---
+
+### Papel e uso esperado
+
+- **Desenvolvimento local** para o projeto de quiz (frontend em HTML/CSS/JS; backend em Node.js e/ou PHP; banco MySQL).  
+- **Estação segura para testes** com ferramentas de auditoria e proteção instaladas para avaliação de vulnerabilidades.  
+- **Uso ocasional com GUI** usando Xfce4 para operações locais, mantendo footprint reduzido.
+
+---
+
+### Considerações de segurança aplicadas
+
+- **Firewall:** iptables com política restritiva (INPUT DROP por padrão); portas sensíveis mantidas fechadas conforme perfil de notebook.  
+- **Controle e auditoria:** AppArmor e auditd habilitados.  
+- **Proteções adicionais:** Fail2Ban, ClamAV e Lynis instalados e configurados para proteção e auditoria.  
+- **SSH:** openssh-server presente mas acesso bloqueado por firewall no perfil local.
+
+---
+
+### Boas práticas recomendadas
+
+- **Atualizar sistema regularmente**
+  ```bash
+  sudo apt update && sudo apt upgrade -y
+  ```
+- **Revisar logs**
+  - auditd logs: /var/log/audit/audit.log  
+  - fail2ban logs: /var/log/fail2ban.log
+- **Expor serviços com segurança**
+  - usar VPN ou abrir portas temporariamente com restrição por IP
+- **Backups**
+  - realizar dumps regulares do MySQL:
+    ```bash
+    mysqldump -u <user> -p <database> > backup.sql
+    ```
+  - criar snapshots do disco antes de mudanças críticas
+- **Documentação**
+  - incluir neste repositório: README.md, pacotes_principais.txt e scripts de setup (setup.sh)
+
+---
