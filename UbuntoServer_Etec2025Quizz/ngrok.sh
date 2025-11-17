@@ -71,4 +71,5 @@ Forwarding  https://gabriel.ngrok-free.app -> http://localhost:3000
 ```
 
 ---
-
+## 7. qrcode
+qrencode -t ansiutf8 "https://lifxspsr5l.sharedwithexpose.com"
