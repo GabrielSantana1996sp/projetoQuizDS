@@ -1,0 +1,19 @@
+Entre no MySQL
+
+bash
+mysql -u root -p
+Crie o banco de dados com o mesmo nome que está no .env
+
+sql
+CREATE DATABASE PROJETOQUIZDS;
+Confirme que foi criado
+
+sql
+SHOW DATABASES;
+Você deve ver PROJETOQUIZDS na lista.
+
+Saia do MySQL e rode novamente o servidor
+
+bash
+exit
+npm start
